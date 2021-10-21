@@ -27,12 +27,12 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
             <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
 
             {/* Forms */}
-            <div className="flex flex-col w-full h-full p-8 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">
+            <div className="flex flex-col w-full h-full p-8 mx-4 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">
                 {fessContent.map((item:Item, idx:number)=>(
                     <Menfess key={idx} fessName={item.name} menfess={item.menfess} fakultas={item.faculty}/> 
                 ))}
             </div>
-            <div className="flex flex-row space-x-4">
+            <div className="flex flex-col space-y-3 sm:space-y-0 sm:space-x-4 sm:flex-row">
                 <Link passHref={true} href="/"><button className="p-3 pl-6 pr-6 text-lg font-semibold text-gray-100 transition-colors duration-700 transform bg-indigo-600 border-indigo-300 rounded-lg hover:bg-blue-400 font-global focus:border-4">Kembali ke beranda</button></Link>
                 <Link passHref={true} href="/register"><button className="p-3 pl-6 pr-6 text-lg font-semibold text-gray-100 transition-colors duration-700 transform bg-blue-600 border-indigo-300 rounded-lg hover:bg-indigo-400 font-global focus:border-4">Send your fess!💜</button></Link>
             </div>

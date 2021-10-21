@@ -11,6 +11,10 @@ interface FessContent{
   [fessContent:string]:any
 }
 
+type Item = {
+  [key:string]:any
+}
+
 const FessPage: NextPage = ({fessContent}:FessContent) => {
   const currentYear = new Date().getFullYear();
   const currentDay = new Date().getDate();
@@ -26,7 +30,7 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
 
             {/* Forms */}
             <div className="flex flex-col w-full h-full p-8 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">
-                {fessContent.map((item, idx)=>(
+                {fessContent.map((item:Item, idx:number)=>(
                     <Menfess key={idx} fessName={item.name} menfess={item.menfess}/> 
                 ))}
             </div>
@@ -44,8 +48,8 @@ export default FessPage
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await Axios.get('https://plis-lah-bisa.herokuapp.com/');
-  
+  const d = res.data
   return {
-    props: { fessContent: res.data.Fess },
+    props: { fessContent: d.Fess },
   };
 };

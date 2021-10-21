@@ -4,12 +4,19 @@ import Image from 'next/image'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Axios from 'axios'
+import { Fragment, useState } from 'react'
+import { Listbox, Transition } from '@headlessui/react'
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
 
 
 const FillFess: React.FunctionComponent = ()=>{
     const [pname, setName] = React.useState("")
     const [pmenfess, setMenfess] = React.useState("")
     
+    const currentYear = new Date().getFullYear();
+    const currentDay = new Date().getDate();
+    const currentMonth = new Date().toLocaleString('default', { month: 'long' });
+
     const submitForm = async () =>{
         try {
             
@@ -17,7 +24,8 @@ const FillFess: React.FunctionComponent = ()=>{
               "https://plis-lah-bisa.herokuapp.com/",
               {
                 name:pname,
-                menfess:pmenfess
+                menfess:pmenfess,
+                faculty:selected.fakultas
               },
               {
                 headers: {
@@ -45,11 +53,40 @@ const FillFess: React.FunctionComponent = ()=>{
           });
     }
 
+    const contextClass = {
+        success: "bg-blue-600",
+        error: "bg-red-600",
+        info: "bg-gray-600",
+        warning: "bg-orange-400",
+        default: "bg-indigo-600",
+        dark: "bg-white-600 font-gray-300",
+      };
+
+      
+      const faculty = [
+        { fakultas: 'FMIPA' },
+        { fakultas: 'SITH-S' },
+        { fakultas: 'SF' },
+        { fakultas: 'FITB' },
+        { fakultas: 'FTTM' },
+        { fakultas: 'STEI' },
+        { fakultas: 'FTSL' },
+        { fakultas: 'FTI' },
+        { fakultas: 'FSRD' },
+        { fakultas: 'FTMD' },
+        { fakultas: 'FTMD' },
+        { fakultas: 'SITH-R' },
+        { fakultas: 'SBM' },
+        { fakultas: 'SAPPK' },
+      ]
+
+      const [selected, setSelected] = useState(faculty[0])
+
     return(
     <>
     <ToastContainer
     position="top-right"
-    autoClose={4000}
+    autoClose={5000}
     hideProgressBar={false}
     newestOnTop={false}
     closeOnClick
@@ -57,6 +94,11 @@ const FillFess: React.FunctionComponent = ()=>{
     pauseOnFocusLoss
     draggable
     pauseOnHover
+    draggablePercent={60}
+    toastClassName={() => contextClass["success" || "default"] + 
+        " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
+      }
+    bodyClassName={() => "text-sm font-white font-global"}
     />
     <div className='flex flex-col justify-between h-screen bg-gradient-to-r from-tertiary to-primary'>
         <div className='h-4'></div>    
@@ -69,7 +111,7 @@ const FillFess: React.FunctionComponent = ()=>{
                 <div className="flex flex-col py-4">
                     <div className="flex flex-row px-4">
                         <div>
-                            <Image alt="Joe" width="100" height="100"src="https://pbs.twimg.com/profile_images/1436574780518375424/sB7so_ln_400x400.jpg" />
+                            <Image alt="Joe" width="100" height="100" src="/itb.jpg" />
                         </div>
 
                         <div className="flex flex-col w-full ml-3">
@@ -81,13 +123,74 @@ const FillFess: React.FunctionComponent = ()=>{
                         </div>
                     </div>
                     
-                    <div className="flex items-center justify-between px-4 py-2 text-blue-400 border-t">
+                    <div className="flex items-center justify-between px-4 py-4 text-blue-400 border-t">
+                        <div className="flex flex-col space-y-2">
                         <input
                         onChange={(e)=> setName(e.target.value)}
                         value={pname} 
-                        className="w-1/2 px-4 font-semibold text-black rounded-md outline-none focus:ring ring-blue-300 font-global" 
+                        className="w-11/12 py-1 pl-2 text-sm font-semibold text-black transition-colors rounded-md outline-none ring ring-indigo-500 focus:ring-blue-300 font-global" 
                         placeholder="Untuk siapa?"/>
-                        <button onClick={submitForm} disabled={(pname === "" && pmenfess === "")? true:false} className="inline px-4 py-3 font-bold text-white bg-blue-600 rounded-full cursor-pointer">Post</button>
+                        <label className="text-sm font-semibold text-left text-gray-700 font-global">
+                            Kamu dari fakultas mana?
+                            <Listbox value={selected} onChange={setSelected}>
+        <div className="relative mt-1">
+          <Listbox.Button className="relative w-full py-2 pl-3 pr-10 font-semibold text-left text-blue-600 bg-white rounded-lg shadow-md cursor-default font-global focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+            <span className="block truncate">{selected.fakultas}</span>
+            <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <SelectorIcon
+                className="w-5 h-5 text-gray-400"
+                aria-hidden="true"
+              />
+            </span>
+          </Listbox.Button>
+          <Transition
+            as={Fragment}
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <Listbox.Options className="absolute z-10 w-full py-1 pl-2 mt-1 space-y-4 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+              {faculty.map((faculty, facultyIdx) => (
+                <Listbox.Option
+                  key={facultyIdx}
+                  className={({ active }) =>
+                    `${active ? 'text-amber-900 bg-amber-100' : 'text-gray-900'}
+                          cursor-default select-none relative`
+                  }
+                  value={faculty}
+                >
+                  {({ selected, active }) => (
+                    <>
+                      <span
+                        className={`${
+                          selected ? 'font-medium' : 'font-normal'
+                        } block truncate`}
+                      >
+                        {faculty.fakultas}
+                      </span>
+                      {selected ? (
+                        <span
+                          className={`${
+                            active ? 'text-amber-600' : 'text-amber-600'
+                          }
+                                absolute inset-y-0 left-0 flex items-center pl-3`}
+                        >
+                          <CheckIcon className="w-5 h-5" aria-hidden="true" />
+                        </span>
+                      ) : null}
+                    </>
+                  )}
+                </Listbox.Option>
+              ))}
+            </Listbox.Options>
+          </Transition>
+        </div>
+      </Listbox>
+                        </label>
+                        </div>
+                        
+                        
+                        <button onClick={submitForm} disabled={(pname === "" && pmenfess === "")? true:false} className="inline px-4 py-3 font-bold text-white transition-colors bg-blue-600 rounded-full cursor-pointer hover:bg-blue-300">Post</button>
                     </div>
                 </div>
             </div>
@@ -98,7 +201,7 @@ const FillFess: React.FunctionComponent = ()=>{
         </div>
         
         <div className="py-2 bg-black">
-            <p className="font-semibold text-center text-white font-global">Copyright &copy; 2021 o All right reserved by STEI ITB 2021</p>
+            <p className="font-semibold text-center text-white font-global">Copyright &copy; 2021 • All right reserved by Anonymous</p>
         </div>
     </div>
     </>

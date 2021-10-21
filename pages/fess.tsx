@@ -19,18 +19,17 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
   const currentDay = new Date().getDate();
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
   
-  
   return (
-    <Layout title="STEI 2021 || Menfess Website ">
+    <Layout title="ITB Menfess Website || Menfess List" >
       <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-tertiary to-primary'>
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
-            <h1 className="text-4xl font-semibold text-white font-global"><span className="font-bold">💌STEI Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
+            <h1 className="text-4xl font-semibold text-white font-global"><span className="font-bold">💌ITB Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
             <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
 
             {/* Forms */}
             <div className="flex flex-col w-full h-full p-8 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">
                 {fessContent.map((item:Item, idx:number)=>(
-                    <Menfess key={idx} fessName={item.name} menfess={item.menfess}/> 
+                    <Menfess key={idx} fessName={item.name} menfess={item.menfess} fakultas={item.faculty}/> 
                 ))}
             </div>
             <div className="flex flex-row space-x-4">

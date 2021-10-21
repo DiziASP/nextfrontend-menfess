@@ -5,7 +5,7 @@ import { NextPage } from 'next'
 
 const IndexPage: NextPage = () => {
   return (
-    <Layout title="STEI 2021 || Menfess Website ">
+    <Layout title="ITB Menfess Website || by STEI 2021">
       <Title/>
     </Layout>
   )

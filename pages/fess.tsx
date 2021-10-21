@@ -6,7 +6,6 @@ import Menfess from '../src/components/Menfess'
 import Axios from "axios";
 import { GetServerSideProps } from 'next'
 
-
 interface FessContent{
   [fessContent:string]:any
 }
@@ -20,7 +19,7 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
   const currentDay = new Date().getDate();
   const currentMonth = new Date().toLocaleString('default', { month: 'long' });
   
-  // const fessContent = [{'menfess':'nigga', 'name':'bruh'}]
+  
   return (
     <Layout title="STEI 2021 || Menfess Website ">
       <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-tertiary to-primary'>

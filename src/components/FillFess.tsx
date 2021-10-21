@@ -26,6 +26,7 @@ const FillFess: React.FunctionComponent = ()=>{
               },
             );
             console.log(res) //check now
+            notify()
           } catch (e) {
               console.log(e)
           }

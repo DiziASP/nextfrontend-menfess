@@ -52,17 +52,7 @@ const FillFess: React.FunctionComponent = ()=>{
             style: {color: '#0FF23S', fontFamily:'raleway', fontWeight:'bold'}
           });
     }
-
-    const contextClass = {
-        success: "bg-blue-600",
-        error: "bg-red-600",
-        info: "bg-gray-600",
-        warning: "bg-orange-400",
-        default: "bg-indigo-600",
-        dark: "bg-white-600 font-gray-300",
-      };
-
-      
+    
       const faculty = [
         { fakultas: 'FMIPA' },
         { fakultas: 'SITH-S' },
@@ -85,7 +75,7 @@ const FillFess: React.FunctionComponent = ()=>{
     return(
     <>
     <ToastContainer
-    position="top-right"
+    position="top-center"
     autoClose={5000}
     hideProgressBar={false}
     newestOnTop={false}
@@ -94,11 +84,6 @@ const FillFess: React.FunctionComponent = ()=>{
     pauseOnFocusLoss
     draggable
     pauseOnHover
-    draggablePercent={60}
-    toastClassName={() => contextClass["success" || "default"] + 
-        " relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer"
-      }
-    bodyClassName={() => "text-sm font-white font-global"}
     />
     <div className='flex flex-col justify-between h-screen bg-gradient-to-r from-tertiary to-primary'>
         <div className='h-4'></div>    

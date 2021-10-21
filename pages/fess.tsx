@@ -25,7 +25,7 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
       <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-tertiary to-primary'>
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
             <h1 className="text-4xl font-semibold text-white font-global"><span className="font-bold">💌STEI Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
-            <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan untuk malam minggu ini!</p>
+            <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
 
             {/* Forms */}
             <div className="flex flex-col w-full h-full p-8 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">

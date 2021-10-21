@@ -46,10 +46,14 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
 
 export default FessPage
 
+type MyType = {
+  id: number;
+  name: string;
+}
 export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await Axios.get('https://plis-lah-bisa.herokuapp.com/');
-  const d = res.data
+  const res:any = await Axios.get('https://plis-lah-bisa.herokuapp.com/');
+  const doto = res.data.Fess
   return {
-    props: { fessContent: d.Fess },
+    props: { fessContent: doto },
   };
 };

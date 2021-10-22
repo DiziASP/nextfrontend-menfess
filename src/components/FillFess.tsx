@@ -88,7 +88,7 @@ const FillFess: React.FunctionComponent = ()=>{
     <div className='flex flex-col justify-between h-screen bg-gradient-to-r from-tertiary to-primary'>
         <div className='h-4'></div>    
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
-            <h1 className="text-4xl font-bold text-white font-global">💌STEI Menfess💌</h1>
+            <h1 className="text-4xl font-bold text-white font-global">💌ITB Menfess💌</h1>
             <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global">Hayuk Kirimkan Pesanmu! </p>
 
             {/* Forms */}

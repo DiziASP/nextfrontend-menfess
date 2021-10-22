@@ -5,10 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'primary' : "#35978c",
-        'secondary' : "#0A405C",
-        'tertiary' :'#0C3F5A',
-        'quartiary':'#dbabbe'
+        'primary':'#e27d60',
+        'secondary':'#41b3a3',
+        'tertiary':'#70ABAF',
+        'quartiary':'#E8A87C',
+        'fifthiary':'#C38D9E',
       },
       fontFamily: {
         'global' : ['Raleway', 'ui-sans-serif', 'system-ui']

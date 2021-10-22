@@ -21,7 +21,7 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
   
   return (
     <Layout title="ITB Menfess Website || Menfess List" >
-      <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-tertiary to-primary'>
+      <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-fifthiary to-quartiary'>
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
             <h1 className="text-4xl font-semibold text-white font-global"><span className="font-bold">💌ITB Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
             <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>

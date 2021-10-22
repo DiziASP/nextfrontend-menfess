@@ -183,6 +183,9 @@ const FillFess: React.FunctionComponent = ()=>{
             <Link passHref={true} href="/">
                 <button className="p-3 pl-6 pr-6 text-lg font-semibold text-gray-100 transition-colors duration-700 transform bg-indigo-600 border-indigo-300 rounded-lg hover:bg-blue-400 font-global focus:border-4">Kembali ke beranda</button>
             </Link>
+            <Link passHref={true} href="/fess">
+                <button className="p-3 pl-6 pr-6 text-lg font-semibold text-gray-100 transition-colors duration-700 transform bg-indigo-600 border-indigo-300 rounded-lg hover:bg-blue-400 font-global focus:border-4">Cek Menfess!!!</button>
+            </Link>
         </div>
         
         <div className="py-2 bg-black">

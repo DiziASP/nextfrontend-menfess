@@ -4,12 +4,12 @@ import Link from 'next/link'
 
 const Title: React.FunctionComponent = ()=>{
     return(
-    <div className='flex flex-col justify-between h-screen bg-tertiary'>
+    <div className='flex flex-col justify-between h-screen bg-background'>
         <div className='h-4'></div>
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
             <Image src="/logo.jpg" height={300} width={300} className="rounded-full" alt='Logo' layout="fixed" />
-            <h1 className="text-3xl font-bold text-center text-white sm:text-4xl">💌ITB Menfess💌</h1>
-            <p className="w-8/12 text-base text-center text-white sm:text-lg xl:w-6/12 xl:5/12 font-global"><strong>ITB Menfess Website</strong> adalah kanal 
+            <h1 className="text-3xl font-bold text-center text-text sm:text-4xl">💌ITB Menfess💌</h1>
+            <p className="w-8/12 text-base text-center text-text sm:text-lg xl:w-6/12 xl:5/12 font-global"><strong>ITB Menfess Website</strong> adalah kanal 
             menfess bagi Massa ITB 2021 untuk menyampaikan pesan anonim baik kepada seorang massa ITB, suatu fakultas ITB ataupun seluruh massa ITB. Kanal ini <span className="font-bold text-primary">bukan merupakan official account</span> dari suatu instansi dan 
             sama sekali tidak terkait dengan Instansi manapun </p>
             

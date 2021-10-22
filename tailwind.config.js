@@ -10,6 +10,9 @@ module.exports = {
         'tertiary':'#70ABAF',
         'quartiary':'#E8A87C',
         'fifthiary':'#C38D9E',
+        'fess':'#755C59',
+        'background':'#F2E1D9',
+        'text':'#6D5B56'
       },
       fontFamily: {
         'global' : ['Raleway', 'ui-sans-serif', 'system-ui']

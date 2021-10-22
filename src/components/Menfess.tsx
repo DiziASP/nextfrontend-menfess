@@ -12,7 +12,7 @@ const Menfess: React.FunctionComponent<Props> = ({fessName,menfess,fakultas})=>{
     return(
     <div className="flex flex-row space-x-4">
         <div className="flex flex-col justify-center space-y-2">
-            <Image alt="JoeMama" height="60" width="60" className="rounded-full" layout="fixed" src="/itb.jpg" />
+            <Image alt="JoeMama" height="80" width="80" className="rounded-full" layout="fixed" src="/itb.jpg" />
             <p className="text-base font-bold text-white font-global">{fakultas}</p>
         </div>
         

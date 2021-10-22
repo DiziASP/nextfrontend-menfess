@@ -21,13 +21,13 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
   
   return (
     <Layout title="ITB Menfess Website || Menfess List" >
-      <div className='flex flex-col justify-between min-h-screen py-16 bg-gradient-to-r from-fifthiary to-quartiary'>
+      <div className='flex flex-col justify-between min-h-screen py-16 bg-background'>
         <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
-            <h1 className="text-4xl font-semibold text-white font-global"><span className="font-bold">💌ITB Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
-            <p className="w-8/12 text-lg text-center text-white xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
+            <h1 className="text-4xl font-semibold text-text font-global"><span className="font-bold">💌ITB Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
+            <p className="w-8/12 text-lg text-center text-text xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
 
             {/* Forms */}
-            <div className="flex flex-col w-full h-full p-8 mx-4 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-secondary">
+            <div className="flex flex-col w-full h-full p-8 mx-4 space-y-8 text-gray-600 rounded-lg shadow-md outline-none bg-fess">
                 {fessContent.map((item:Item, idx:number)=>(
                     <Menfess key={idx} fessName={item.name} menfess={item.menfess} fakultas={item.faculty}/> 
                 ))}

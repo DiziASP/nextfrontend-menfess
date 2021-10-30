@@ -101,6 +101,7 @@ const FillFess: React.FunctionComponent = ()=>{
 
                         <div className="flex flex-col w-full ml-3">
                             <textarea
+                            disabled={(currentDay === 31)? true:false}
                             value={pmenfess} 
                             onChange={(e)=> setMenfess(e.target.value)} 
                             placeholder="Tuliskan pesanmu..." 
@@ -111,13 +112,14 @@ const FillFess: React.FunctionComponent = ()=>{
                     <div className="flex items-center justify-between px-4 py-4 text-blue-400 border-t">
                         <div className="flex flex-col space-y-2">
                         <input
+                        disabled={(currentDay === 31)? true:false}
                         onChange={(e)=> setName(e.target.value)}
                         value={pname} 
                         className="w-11/12 py-1 pl-2 text-sm font-semibold text-black transition-colors rounded-md outline-none ring ring-indigo-500 focus:ring-blue-300 font-global" 
                         placeholder="Untuk siapa?"/>
                         <label className="text-sm font-semibold text-left text-gray-700 font-global">
                             Kamu dari fakultas mana?
-                            <Listbox value={selected} onChange={setSelected}>
+                            <Listbox disabled={(currentDay === 31)? true:false} value={selected} onChange={setSelected}>
         <div className="relative mt-1">
           <Listbox.Button className="relative w-full py-2 pl-3 pr-10 font-semibold text-left text-blue-600 bg-white rounded-lg shadow-md cursor-default font-global focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
             <span className="block truncate">{selected.fakultas}</span>

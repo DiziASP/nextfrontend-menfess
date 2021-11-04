@@ -85,27 +85,29 @@ const FillFess: React.FunctionComponent = ()=>{
     draggable
     pauseOnHover
     />
-    <div className='flex flex-col justify-between h-screen bg-background'>
-        <div className='h-4'></div>    
-        <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
+    <div className='relative flex flex-col justify-between h-screen bg-background'>
+        <div className='z-0 '>
+            <Image src="/bg-element.svg" alt='Logo' layout="fill" />
+        </div>   
+        <div className="container z-10 flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
             <h1 className="text-4xl font-bold text-text font-global">💌ITB Menfess💌</h1>
             <p className="w-8/12 text-lg text-center text-text xl:w-6/12 xl:5/12 font-global">Hayuk Kirimkan Pesanmu! </p>
 
             {/* Forms */}
-            <div className="w-11/12 bg-white rounded-xl md:w-2/3 lg:w-2/3 xl:w-5/12">
+            <div className="w-11/12 bg-primary rounded-xl md:w-2/3 lg:w-2/3 xl:w-5/12">
                 <div className="flex flex-col py-4">
                     <div className="flex flex-row px-4">
                         <div>
                             <Image alt="Joe" width="100" height="100" src="/itb.jpg" />
                         </div>
 
-                        <div className="flex flex-col w-full ml-3">
+                        <div className="flex flex-col w-full ml-3 bg-primary">
                             <textarea
                             disabled={(currentDay === 31)? true:false}
                             value={pmenfess} 
                             onChange={(e)=> setMenfess(e.target.value)} 
                             placeholder="Tuliskan pesanmu..." 
-                            className="w-full h-32 text-base outline-none resize-none font-global"></textarea>
+                            className="w-full h-32 text-base text-white placeholder-white outline-none resize-none font-fess bg-primary"></textarea>
                         </div>
                     </div>
                     
@@ -117,11 +119,11 @@ const FillFess: React.FunctionComponent = ()=>{
                         value={pname} 
                         className="w-11/12 py-1 pl-2 text-sm font-semibold text-black transition-colors rounded-md outline-none ring ring-indigo-500 focus:ring-blue-300 font-global" 
                         placeholder="Untuk siapa?"/>
-                        <label className="text-sm font-semibold text-left text-gray-700 font-global">
+                        <label className="text-sm font-semibold text-left text-gray-700 font-fess">
                             Kamu dari fakultas mana?
                             <Listbox disabled={(currentDay === 31)? true:false} value={selected} onChange={setSelected}>
         <div className="relative mt-1">
-          <Listbox.Button className="relative w-full py-2 pl-3 pr-10 font-semibold text-left text-blue-600 bg-white rounded-lg shadow-md cursor-default font-global focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+          <Listbox.Button className="relative w-full py-2 pl-3 pr-10 font-semibold text-left text-blue-400 bg-white rounded-lg shadow-md cursor-default font-fess focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
             <span className="block truncate">{selected.fakultas}</span>
             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <SelectorIcon
@@ -190,7 +192,7 @@ const FillFess: React.FunctionComponent = ()=>{
             </Link>
         </div>
         
-        <div className="py-2 bg-black">
+        <div className="z-10 py-2 bg-black">
             <p className="font-semibold text-center text-white font-global">Copyright &copy; 2021 • All right reserved by Anonymous</p>
         </div>
     </div>

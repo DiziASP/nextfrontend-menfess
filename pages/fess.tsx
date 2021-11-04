@@ -5,7 +5,7 @@ import { NextPage } from 'next'
 import Menfess from '../src/components/Menfess'
 import Axios from "axios";
 import { GetServerSideProps } from 'next'
-
+import Image from 'next/image'
 interface FessContent{
   [fessContent:string]:any
 }
@@ -21,9 +21,12 @@ const FessPage: NextPage = ({fessContent}:FessContent) => {
   
   return (
     <Layout title="ITB Menfess Website || Menfess List" >
-      <div className='flex flex-col justify-between min-h-screen py-16 bg-background'>
-        <div className="container flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
-            <h1 className="text-4xl font-semibold text-text font-global"><span className="font-bold">💌ITB Menfess</span> ♡ {currentDay}-{currentMonth}-{currentYear}💌</h1>
+      <div className='relative flex flex-col justify-start min-h-screen py-16 bg-background'>
+      <div className='z-0 '>
+            <Image src="/bg-element.svg" alt='Logo' layout="fill" />
+        </div>
+        <div className="container z-10 flex flex-col items-center justify-center mx-auto space-y-4 text-center align-middle">
+            <h1 className="text-4xl font-semibold text-text font-global"><span className="font-bold">💌ITB Menfess</span> ♡ <span className="font-fess">{currentDay}-{currentMonth}-{currentYear}</span>💌</h1>
             <p className="w-8/12 text-lg text-center text-text xl:w-6/12 xl:5/12 font-global"> Pesan-pesan dari seseorang untuk kamu hari ini!</p>
 
             {/* Forms */}
